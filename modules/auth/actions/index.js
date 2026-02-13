@@ -13,7 +13,7 @@ export const onBoardUser = async () => {
     const { id, firstName, lastName, imageUrl, emailAddresses } = user;
 
     // Ensure Prisma Client is up to date with schema
-    // 'clerkId' is unique, so this is correct
+
     const newUser = await prisma.user.upsert({
       where: {
         clerkId: id,
