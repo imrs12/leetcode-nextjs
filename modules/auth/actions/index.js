@@ -1,7 +1,6 @@
 "use server";
 import { prisma} from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
-import { success } from "zod";
 
 export const onBoardUser = async () => {
   try {
@@ -76,4 +75,19 @@ export const getUserRole = async ()=>{
         console.error("❌ Error fetching user role:", error);
         return { success: false, error: "Failed to fetch user role" };
       }
+}
+
+export const getCurrentUser = async ()=>{
+    const user = await currentUser()
+
+    const dbUser = await prisma.user.findUnique({
+      where: {
+          clerkId: user.id
+      },
+      select: {
+        id: true
+      }
+    })
+
+    return dbUser
 }
