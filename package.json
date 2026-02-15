@@ -12,6 +12,7 @@
     "@base-ui/react": "^1.1.0",
     "@clerk/nextjs": "^6.37.3",
     "@hookform/resolvers": "^5.2.2",
+    "@monaco-editor/react": "^4.7.0",
     "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
     "axios": "^1.13.5",
